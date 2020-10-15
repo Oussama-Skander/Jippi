@@ -14,6 +14,7 @@ import { ItemsComponent } from './User/Customer/home/items/items.component';
 import { ItemComponent } from './User/Customer/home/items/item/item.component';
 import { CompNavbarComponent } from './user/company/comp-navbar/comp-navbar.component';
 import { ShopProfileComponent } from './user/company/shop-profile/shop-profile.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ShopProfileComponent } from './user/company/shop-profile/shop-profile.c
     ItemsComponent,
     ItemComponent,
     CompNavbarComponent,
-    ShopProfileComponent
+    ShopProfileComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
