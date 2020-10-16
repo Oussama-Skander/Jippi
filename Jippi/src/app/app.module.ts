@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';  
 import { RouterModule } from '@angular/router';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +19,9 @@ import { ItemComponent } from './User/Customer/home/items/item/item.component';
 import { CompNavbarComponent } from './user/company/comp-navbar/comp-navbar.component';
 import { ShopProfileComponent } from './user/company/shop-profile/shop-profile.component';
 import { UserComponent } from './user/user.component';
+import { CustProfileComponent } from './User/Customer/cust-profile/cust-profile.component';
+import { EditProfileComponent } from './User/Customer/cust-profile/edit-profile/edit-profile.component';
+import { ProfileComponent } from './User/Customer/cust-profile/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -33,9 +38,13 @@ import { UserComponent } from './user/user.component';
     ItemComponent,
     CompNavbarComponent,
     ShopProfileComponent,
-    UserComponent
+    UserComponent,
+    CustProfileComponent,
+    EditProfileComponent,
+    ProfileComponent
   ],
   imports: [
+    FormsModule,
     CommonModule,
     BrowserModule,
     AppRoutingModule,
