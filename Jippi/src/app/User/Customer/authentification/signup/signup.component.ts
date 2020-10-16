@@ -1,32 +1,30 @@
-import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
-import {ErrorStateMatcher} from '@angular/material/core';
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { NgForm } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
-}
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  styleUrls: ['./signup.component.css', './signup.component.scss'],
 })
-export class SignupComponent implements OnInit {
+export class SignupComponent {
+  data: any = {
+    email: '',
+    password: '',
+  };
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) {}
 
   ngOnInit(): void {
+    console.log('forms');
   }
-
-}
-
-export class InputErrorStateMatcherExample {
-  emailFormControl = new FormControl('', [
-    Validators.required,
-    Validators.email,
-  ]);
-
-  matcher = new MyErrorStateMatcher();
+  baseUrl = 'http://localhost:4200/';
+  register() {
+    this.httpClient.post(
+      this.baseUrl + '/api/register/customer/signup',
+      this.data,
+      { headers: { 'content-type': 'application/json' } }
+    );
+  }
 }
