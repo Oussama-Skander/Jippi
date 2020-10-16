@@ -3,6 +3,9 @@ const bodyParser = require("body-parser");
 const app = express();
 const path = require("path");
 const PORT = process.env.PORT || 3008;
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 // Routes 
 // CompanyRoutes
 const signupCompanyRouter = require("./routes/auth/company/signupcompany.js");
@@ -14,6 +17,13 @@ const signupCustomerRouter = require("./routes/auth/customer/signupcustomer.js")
 const customerProfileRouter = require("./routes/customerProfile.js");
 // items & products
 const itemsRouter = require("./routes/items.js");
+
+const db = require("./database/models");
+db.sequelize.sync({
+  force: true
+}).then(() => {
+  console.log("Drop and re-sync db.");
+});
 
 // Using those routes
 // Company

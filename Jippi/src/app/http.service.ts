@@ -13,7 +13,7 @@ export class HttpService {
     email: '',
     password: '',
   };
-
+//  the base url is the server port number
   baseUrl = 'http://127.0.0.1:3008';
 
   signup() {
