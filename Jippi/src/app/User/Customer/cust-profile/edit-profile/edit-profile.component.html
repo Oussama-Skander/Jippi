@@ -14,10 +14,15 @@
 
         <!-- edit form column -->
         <div class="col-md-9 personal-info">
-            <div class="alert alert-danger alert-dismissible" *ngIf="alertt.length !== 0">
+            <div class="alert alert-info alert-dismissable" *ngIf="alertt === 'Success update'">
                 <a class="panel-close close" data-dismiss="alert">×</a>
                 <i class="fa fa-coffee"></i>
-                {{alertt}}
+            <strong>Success!</strong>  {{alertt}}
+            </div>
+            <div class="alert alert-danger alert-dismissible" *ngIf="alertt === 'Some think rong'">
+                <a class="panel-close close" data-dismiss="alert">×</a>
+                <i class="fa fa-coffee"></i>
+            <strong>Error!</strong> {{alertt}}
             </div>
             <h3>Personal info</h3>
 

@@ -10,7 +10,7 @@ export class EditProfileComponent implements OnInit {
   firstName: String = '';
   lastName: String = '';
   phoneNumber: Number = null;
-  email: String= '';
+  email: any= '';
   password: String = '';
   confirmPassword: String = '';
   url: any;
@@ -21,7 +21,7 @@ export class EditProfileComponent implements OnInit {
     // alert('test')
   }
   ngDoCheck(){
-// console.log('===>',this.url);
+console.log('===>',this.firstName);
 
   }
 //function to read avatar url
@@ -37,8 +37,14 @@ export class EditProfileComponent implements OnInit {
     }
   }
   check(){
-    if (this.firstName.length === 0){
-      this.alertt = 'some think rong'
+    let succ = "Success update";
+    let err = "Some think rong";
+    var em = this.email
+    if (em.length !==0 && !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(em)){
+      this.alertt = err
+    }
+    else if(em.length ===0 || /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(em)) {
+      this.alertt = succ
     }
   }
 
