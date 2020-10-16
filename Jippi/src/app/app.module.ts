@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CustNavbarComponent } from './User/Customer/cust-navbar/navbar.component';
@@ -15,9 +15,11 @@ import { ItemComponent } from './User/Customer/home/items/item/item.component';
 import { CompNavbarComponent } from './user/company/comp-navbar/comp-navbar.component';
 import { ShopProfileComponent } from './user/company/shop-profile/shop-profile.component';
 import { UserComponent } from './user/user.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
+    HttpClientModule,
     AppComponent,
     CustNavbarComponent,
     HomeComponent,
@@ -31,13 +33,10 @@ import { UserComponent } from './user/user.component';
     ItemComponent,
     CompNavbarComponent,
     ShopProfileComponent,
-    UserComponent
+    UserComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [FormsModule, BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
