@@ -1,6 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';  
+import { RouterModule } from '@angular/router';
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CustNavbarComponent } from './User/Customer/cust-navbar/navbar.component';
@@ -40,9 +44,11 @@ import { ProfileComponent } from './User/Customer/cust-profile/profile/profile.c
     ProfileComponent
   ],
   imports: [
-     FormsModule,
+    FormsModule,
+    CommonModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
