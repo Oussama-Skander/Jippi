@@ -14,11 +14,11 @@ export class EditProfileComponent implements OnInit {
   password: String = '';
   confirmPassword: String = '';
   url: any;
-
+  alertt: string= '';
   constructor() { }
 
   ngOnInit(): void {
-    
+    // alert('test')
   }
   ngDoCheck(){
 // console.log('===>',this.url);
@@ -34,6 +34,11 @@ export class EditProfileComponent implements OnInit {
       reader.onload = (event) => { 
         this.url = event.target.result;
       }
+    }
+  }
+  check(){
+    if (this.firstName.length === 0){
+      this.alertt = 'some think rong'
     }
   }
 

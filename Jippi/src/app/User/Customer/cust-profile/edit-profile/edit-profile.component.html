@@ -5,7 +5,7 @@
         <!-- left column -->
         <div class="col-md-3">
             <div class="text-center">
-                <img id='avatar' [src]="url ?url : 'https://ptetutorials.com/images/user-profile.png'" class="avatar img-circle" alt="avatar">
+                <img id='avatar' [src]="url ?url : 'https://ptetutorials.com/images/user-profile.png'" class="avatar img-circle" alt="avatar" width="100%">
                 <h6>Upload a different photo...</h6>
 
                 <input type="file" class="form-control" (change)="onSelectFile($event)">
@@ -14,10 +14,10 @@
 
         <!-- edit form column -->
         <div class="col-md-9 personal-info">
-            <div class="alert alert-info alert-dismissable">
+            <div class="alert alert-danger alert-dismissible" *ngIf="alertt.length !== 0">
                 <a class="panel-close close" data-dismiss="alert">×</a>
                 <i class="fa fa-coffee"></i>
-                This is an <strong>.alert</strong>. Use this to show important messages to the user.
+                {{alertt}}
             </div>
             <h3>Personal info</h3>
 
@@ -47,6 +47,14 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label class="col-lg-3 control-label">Adress:</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" type="email">
+                        <input class="form-control" type="email">
+                        <input class="form-control" type="email">
+                    </div>
+                </div>
+                <div class="form-group">
                     <label class="col-md-3 control-label">Password:</label>
                     <div class="col-md-8">
                         <input class="form-control" type="password" name="password" [(ngModel)]="password">
@@ -61,7 +69,7 @@
                 <div class="form-group">
                     <label class="col-md-3 control-label"></label>
                     <div class="col-md-8">
-                        <input type="button" class="btn btn-primary" value="Save Changes">
+                        <input type="button" class="btn btn-primary" value="Save Changes" (click)="check()">
                         <span></span>
                         <input type="reset" class="btn btn-default" value="Cancel">
                     </div>
